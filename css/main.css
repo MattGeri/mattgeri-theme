@@ -1,35 +1,25 @@
+/* ------------------------------------------------------------------------------------------------- Structure */
+
+html {
+    font-size: 16px;
+}
+
 body {
     color: #333;
     font-family: 'proxima-nova', sans-serif;
-    font-size: 16px;
     line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 500;
+header, #hero, main, footer {
+    font-size: 1rem;
 }
 
-h1, h2 {
-    font-size: 26px;
+.inner {
+    margin: 0 auto;
 }
 
-h3 {
-    font-size: 18px;
-}
-
-blockquote {
-    color: #999;
-    font-style: italic;
-    margin: 20px;
-}
-
-a {
-    color: #df4882;
+header .inner, #hero .inner, main .inner, footer .inner {
+    max-width: 1200px;
 }
 
 img {
@@ -38,28 +28,66 @@ img {
 }
 
 ul li {
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
-.rsDefault .rsThumb.rsNavSelected {
-    background-color: #df4882 !important;
+/* ------------------------------------------------------------------------------------------------- Text */
+
+h1 {
+    font-size: 2em;
 }
 
-.screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    height: 1px;
-    overflow: hidden;
-    position: absolute !important;
-    width: 1px;
+h2 {
+    font-size: 1.5em;
 }
+
+h3 {
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'futura-pt', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+a {
+    color: #df4882;
+}
+
+/* ------------------------------------------------------------------------------------------------- Hero */
+
+#hero {
+    background: #333 url(../images/hero.jpg) 80% 0;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+#hero .main-navigation ul li a {
+    color: #fff;
+}
+
+#hero h1 {
+    margin: 0;
+}
+
+#hero h1 span {
+    color: #df4882;
+}
+
+#hero h3 {
+    color: #df4882;
+}
+
+/* ------------------------------------------------------------------------------------------------- Header */
 
 #header {
-    overflow: hidden;
-    padding: 25px;
+    padding: 1rem;
+    position: relative;
 }
 
 .site-branding {
-    float: left;
     margin: 0;
     overflow: hidden;
 }
@@ -70,49 +98,86 @@ ul li {
     width: auto;
 }
 
-.main-navigation {
-    float: right;
+/* ------------------------------------------------------------------------------------------------- Top Menu */
+
+.menu-drop a {
+    display: block;
+    height: 30px;
+    padding: 15px 1em 0 1em;
+    position: absolute;
+    right: 1rem;
+    text-indent: -9999px;
+    top: 1rem;
+    width: 2em;
+}
+
+.open .menu-drop a {
+    background: #1B3254;
+    height: 40px;
+}
+
+.menu-drop a::before {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    width: 2rem;
+}
+
+.menu-drop a::after {
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    content: '';
+    display: block;
+    height: 6px;
+    position: absolute;
+    top: 23px;
+    width: 2em;
 }
 
 .main-navigation ul {
-    margin: 0;
+    display: none;
+    margin: 10px 0 0;
     padding: 0;
 }
 
 .main-navigation ul li {
-    float: left;
     list-style: none;
-    margin: 0 0 0 40px;
+    margin: 0;
 }
 
 .main-navigation ul li a {
-    color: #999;
-    line-height: 45px;
+    background: #1B3254;
+    border-bottom: 1px solid #444;
+    color: #fff;
+    display: block;
+    padding: 0.8rem;
     text-decoration: none;
 }
 
-#hero {
-    background: #1B3254;
-    color: #fff;
-    padding: 25px;
+/* ------------------------------------------------------------------------------------------------- Hero Content */
+
+#hero-content {
+    background: rgba(27, 50, 84, 0.75);
+    margin-top: 20rem;
+    padding: 1rem;
 }
 
-#notice {
-    padding:  0 25px 25px;
-}
 
-#notice h3 {
-    color: #df4882;
-    margin: 0;
-}
 
-#hero h1 {
-    margin: 0;
-}
 
-#hero h3 {
-    color: #df4882;
-}
+
+
+
+
+
+
+
+
+
+
+
 
 .signup {
     margin-top: 25px;
@@ -511,19 +576,14 @@ ul li {
     color: #f33;
 }
 
-@media screen and (min-width : 768px) {
+/*@media screen and (min-width : 768px) {
     body {
         font-size: 18px;
     }
 
-    #header {
-        margin: 0 auto;
-        padding: 50px 0;
-        width: 720px;
-    }
-
+    #header,
     #notice,
-    #hero article,
+    #hero-content,
     #feature,
     #content,
     #more,
@@ -533,7 +593,12 @@ ul li {
     #footer {
         margin: 0 auto;
         padding: 0;
-        width: 720px;
+        width: 920px;
+    }
+
+    #header,
+    #hero-content {
+        padding: 50px 0;
     }
 
     #hero,
@@ -550,12 +615,27 @@ ul li {
     }
 
     #hero h1 {
-        font-size: 42px;
+        font-size: 48px;
         line-height: 1.4;
     }
 
     #hero h3 {
         font-size: 24px;
+    }
+
+    #hero article {
+        width: 600px;
+    }
+
+    .main-navigation {
+        float: left;
+        margin: 0 0 0 50px;
+    }
+
+    .main-navigation ul li {
+        float: left;
+        list-style: none;
+        margin: 0 40px 0 0;
     }
     
     .signup {
@@ -600,4 +680,4 @@ ul li {
         margin: 0 0 50px;
         padding: 0 0 50px;
     }
-}
+}*/

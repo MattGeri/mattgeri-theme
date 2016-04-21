@@ -1,19 +1,24 @@
 <?php get_header(); ?>
 
-	<main id="main" role="main">
+	<div id="hero">
+		<div class="inner">
+			<?php get_template_part( 'parts/header' ); ?>
 
-		<div id="hero">
-			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) : the_post();
-					get_template_part( 'parts/content', get_post_format() );
-				endwhile;
-			else :
-				get_template_part( 'parts/content', 'none' );
-			endif;
-			?>
+			<div id="hero-content">
+				<?php
+				if ( have_posts() ) :
+					while ( have_posts() ) : the_post();
+						get_template_part( 'parts/only-content', get_post_format() );
+					endwhile;
+				else :
+					get_template_part( 'parts/content', 'none' );
+				endif;
+				?>
+			</div>
 		</div>
+	</div>
 
+	<main id="main" role="main">
 		<div id="feature">
 			<?php mattgeritheme_latest_article(); ?>
 		</div>
